@@ -78,9 +78,22 @@ public class PuzzleView extends View {
 			canvas.drawLine(0, i * height + 1, getWidth(), i * height+1, hilite);
 			canvas.drawLine(i * width, 0, i * width, getHeight(), dark);
 			canvas.drawLine(i * width + 1, 0, i * width + 1, getHeight(), hilite);
-}
+		}
 
 		//Draw the numbers
+		Paint foreground = new Paint(Paint.ANTI_ALIAS_FLAG);
+		foreground.setColor(getResources().getColor(R.color.puzzle_foreground));
+		foreground.setStyle(Style.FILL);
+		foreground.setTextSize(height * 0.75f);
+		foreground.setTextScaleX(width / height);
+		foreground.setTextAlign(Paint.Align.CENTER);
+		
+		//Draw the number in the center of the tile
+		FontMetrics fm = foreground.getFontMetrics();
+		float x = width / 2;
+		float y = height / 2 - (fm.ascent + fm.descent) / 2;
+		
+		
 		//Draw the hints
 		//Draw the selection
 	}
